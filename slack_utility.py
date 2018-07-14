@@ -26,7 +26,7 @@ def get_users():
 		user_list = dict([(x['name'], x['id']) for x in api_call['members']])
 		return user_list
 	else:
-		print 'Error Fetching Users'
+		print ('Error Fetching Users')
 		return None
 
 def get_bot_id(botname=''):
@@ -36,7 +36,7 @@ def get_bot_id(botname=''):
 	if environ.get('BOTNAME'):
 		botname = environ.get('BOTNAME')
 	else:
-		print 'BOTNAME not set in the environment'
+		print ('BOTNAME not set in the environment')
 		return None
 
 	if environ.get('SLACK_BOT_ID'):
@@ -48,7 +48,7 @@ def get_bot_id(botname=''):
 			environ.update({'SLACK_BOT_ID': BOT_ID})
 			return BOT_ID
 		else:
-			print 'BOTNAME not present in user list'
+			print ('BOTNAME not present in user list')
 			return None
 
 def get_slack_token():
@@ -58,7 +58,7 @@ def get_slack_token():
 	if environ.get('SLACK_TOKEN'):
 		return environ.get('SLACK_TOKEN')
 	else:
-		print 'SLACK_TOKEN not set in the environment'
+		print ('SLACK_TOKEN not set in the environment')
 		return None
 
 def parse_slack_response(rtm_output):
